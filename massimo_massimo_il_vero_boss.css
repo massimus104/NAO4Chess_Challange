@@ -1,0 +1,151 @@
+/* Sfondo generale */
+.body {
+    background-image: url('nao_sfondo_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titoli */
+.h1, .h_1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin: 2vh 0;
+    color: #000;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Bottoni header */
+.h2, .h2_2, .h2_3 {
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    color: #000;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    position: absolute;
+    top: 1vh;
+}
+
+.h2 { right: 2vw; }
+.h2_2 { right: 15vw; }
+.h2_3 { right: 30vw; }
+
+/* Testi */
+.p, .p_2, .p_3 {
+    font-family: "Roboto", serif;
+    font-weight: bold;
+    color: #000;
+    margin: 2vh 4vw;
+    line-height: 1.5;
+}
+/* Dentro el_toro.html */
+.p, .p_2, .p_3 {
+    font-size: clamp(1rem, 2.2vw, 1.8rem); /* Riduce dimensione */
+    line-height: 1.4;
+    margin: 1.5vh 2vw;
+}
+
+.p { font-size: clamp(1.5rem, 4vw, 2.8rem); }
+.p_2 { font-size: clamp(1.3rem, 3vw, 2.2rem); }
+.p_3 { font-size: clamp(1.4rem, 3.5vw, 2.5rem); }
+
+/* Slider */
+.slider {
+    margin: 2vh auto;
+    padding: 1vh;
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.slider .item {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fade 2.5s;
+}
+
+.slider .item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Animazione slider */
+@keyframes fade {
+    from { opacity: 0.1; }
+    to { opacity: 1; }
+}
+
+/* Colonna immagini */
+.item_col_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Immagini con classi personalizzate */
+.el_bellicoso, .oh_massimo, .el_toro, .il_boss {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Bottoni */
+.first_presentation {
+    background-color: hsl(203, 99%, 65%);
+    border-radius: 2vh;
+    padding: 0.5em 1em;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    margin: 0.5em;
+    cursor: pointer;
+    box-shadow: 0 0.3em 0 hsl(203, 82%, 45%, 0.5);
+    border: none;
+}
+
+.first_presentation:active,
+.first_presentation:focus-visible {
+    transform: translateY(0.3em);
+    box-shadow: none;
+}
+
+/* Frecce slider solo su mobile */
+.arrow_mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .arrow_mobile {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .arrow_mobile a {
+        font-size: 2rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Sistemo anche i bottoni in alto */
+    .h2, .h2_2, .h2_3 {
+        position: static;
+        display: inline-block;
+        margin: 0.5vh;
+    }
+}
