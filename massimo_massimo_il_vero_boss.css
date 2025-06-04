@@ -121,33 +121,6 @@
     display: none;
 }
 @media screen and (max-width: 768px) {
-  .h1 {
-    font-size: clamp(1.3rem, 6vw, 2.4rem);
-  }
-
-  .p {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-  }
-
-  .first_presentation {
-    font-size: 1rem;
-    padding: 0.5em 1em;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .wrapper {
-    padding: 4vw;
-  }
-
-  .p {
-    font-size: 1rem;
-  }
-
-  .first_presentation {
-    width: 100%;
-  }
-@media screen and (max-width: 768px) {
     .arrow_mobile {
         display: flex;
         justify-content: space-between;
@@ -174,9 +147,4 @@
         display: inline-block;
         margin: 0.5vh;
     }
-}
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2vw;
 }
