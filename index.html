@@ -90,131 +90,133 @@
     </style>
 </head>
 <body class="body">
-    <h1 class="h_1">Nao4Chess</h1>
-
-    <div class="slider">
-        <div class="item">
-            <div class="item_col_2">
-                <img src="massimo_massimo.jpg" class="el_bellicoso">
-            </div>           
-        </div>
-
-        <div class="item">
-            <div class="item_col_2">
-                <img src="il_bellicoso.jpg" class="oh_massimo">
-            </div>           
-        </div>
-        
-        <div class="item">
-            <div class="item_col_2">
-                <img src="el_boss.JPG" class="el_toro">
-            </div>           
-        </div>
-
-        <div class="item">
-            <div class="item_col_2">
-                <img src="oh_massimo_massimo_il_vero_boss.jpg" class="il_boss">
-            </div>           
-        </div>
-
-        <div class="item">
-            <div class="item_col_2">
-                <img src="collega.jpg" class="">
-            </div>           
-        </div>
-
-        <div class="item">
-            <div class="item_col_2">
-                <img src="collega_2.jpg" class="el_bellicoso">
-            </div>           
-        </div>
-
-        <div class="arrow_mobile">
-            <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
-            <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
-        </div>
-    </div>
-
-    <button class="button-scheda h2 first_presentation" onclick="toggleScheda('el_toro.html')">Chi siamo?</button>
-    <button class="button-scheda h2_2 first_presentation" onclick="toggleScheda('el_toro_1.html')">Steps</button>
-    <button class="button-scheda h2_3 first_presentation" onclick="toggleScheda('el_toro_2.html')">Partner</button>
+    <div class="wrapper">
+        <h1 class="h_1">Nao4Chess</h1>
     
-    <div id="schedaContainer" class="div">
-        <!-- Qui apparirà l'iframe -->
-    </div>
-
-    <script>
-        let slideIndex = 1;
-
-        // Mostra la prima slide all'avvio
-        document.addEventListener("DOMContentLoaded", function() {
-            showSlides(slideIndex);
-        });
-
-        function nextSlide() {
-            showSlides(slideIndex += 1);
-        }
-
-        function previousSlide() {
-            showSlides(slideIndex -= 1);  
-        }
-
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("item");
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
+        <div class="slider">
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="massimo_massimo.jpg" class="el_bellicoso">
+                </div>           
+            </div>
+    
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="il_bellicoso.jpg" class="oh_massimo">
+                </div>           
+            </div>
             
-            for (let slide of slides) {
-                slide.style.display = "none";
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="el_boss.JPG" class="el_toro">
+                </div>           
+            </div>
+    
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="oh_massimo_massimo_il_vero_boss.jpg" class="il_boss">
+                </div>           
+            </div>
+    
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="collega.jpg" class="">
+                </div>           
+            </div>
+    
+            <div class="item">
+                <div class="item_col_2">
+                    <img src="collega_2.jpg" class="el_bellicoso">
+                </div>           
+            </div>
+    
+            <div class="arrow_mobile">
+                <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
+                <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
+            </div>
+        </div>
+    
+        <button class="button-scheda h2 first_presentation" onclick="toggleScheda('el_toro.html')">Chi siamo?</button>
+        <button class="button-scheda h2_2 first_presentation" onclick="toggleScheda('el_toro_1.html')">Steps</button>
+        <button class="button-scheda h2_3 first_presentation" onclick="toggleScheda('el_toro_2.html')">Partner</button>
+        
+        <div id="schedaContainer" class="div">
+            <!-- Qui apparirà l'iframe -->
+        </div>
+    
+        <script>
+            let slideIndex = 1;
+    
+            // Mostra la prima slide all'avvio
+            document.addEventListener("DOMContentLoaded", function() {
+                showSlides(slideIndex);
+            });
+    
+            function nextSlide() {
+                showSlides(slideIndex += 1);
             }
-
-            slides[slideIndex - 1].style.display = "flex";    
-        }
-
-        // Ascolta gli eventi della tastiera per i tasti 6 (avanti) e 4 (indietro)
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "6") {  // Tasto 6 per andare avanti
-                nextSlide();
+    
+            function previousSlide() {
+                showSlides(slideIndex -= 1);  
             }
-            if (event.key === "4") {  // Tasto 4 per andare indietro
-                previousSlide();
-            }
-        });
-
-        var schedaAperta = null;
-
-        function toggleScheda(file) {
-            if (schedaAperta === file) {
-                chiudiScheda();
-            } else {
-                if (schedaAperta !== null) {
-                    chiudiScheda();
+    
+            function showSlides(n) {
+                let slides = document.getElementsByClassName("item");
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                
+                for (let slide of slides) {
+                    slide.style.display = "none";
                 }
-                apriScheda(file);
+    
+                slides[slideIndex - 1].style.display = "flex";    
             }
-        }
-
-        function apriScheda(file) {
-            var iframe = document.createElement("iframe");
-            iframe.src = file;
-            iframe.width = "700";
-            iframe.height = "530";
-            iframe.style.margin = "0 2%";
-            iframe.style.borderRadius = "15px";
-            iframe.style.border = "2px solid #ccc";
-            iframe.style.boxShadow = "5px 5px 15px rgba(0, 0, 0, 0.3)";
-
-            document.getElementById("schedaContainer").appendChild(iframe);
-            schedaAperta = file;
-        }
-
-        function chiudiScheda() {
-            var container = document.getElementById("schedaContainer");
-            while (container.firstChild) {
-                container.removeChild(container.firstChild);
+    
+            // Ascolta gli eventi della tastiera per i tasti 6 (avanti) e 4 (indietro)
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "6") {  // Tasto 6 per andare avanti
+                    nextSlide();
+                }
+                if (event.key === "4") {  // Tasto 4 per andare indietro
+                    previousSlide();
+                }
+            });
+    
+            var schedaAperta = null;
+    
+            function toggleScheda(file) {
+                if (schedaAperta === file) {
+                    chiudiScheda();
+                } else {
+                    if (schedaAperta !== null) {
+                        chiudiScheda();
+                    }
+                    apriScheda(file);
+                }
             }
-            schedaAperta = null;
-        }
-    </script>
+    
+            function apriScheda(file) {
+                var iframe = document.createElement("iframe");
+                iframe.src = file;
+                iframe.width = "700";
+                iframe.height = "530";
+                iframe.style.margin = "0 2%";
+                iframe.style.borderRadius = "15px";
+                iframe.style.border = "2px solid #ccc";
+                iframe.style.boxShadow = "5px 5px 15px rgba(0, 0, 0, 0.3)";
+    
+                document.getElementById("schedaContainer").appendChild(iframe);
+                schedaAperta = file;
+            }
+    
+            function chiudiScheda() {
+                var container = document.getElementById("schedaContainer");
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
+                schedaAperta = null;
+            }
+        </script>
+    </div>
 </body>
 </html>
